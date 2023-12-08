@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTodo } from './hooks/useTodo';
 import './index.css';
-import { Toaster } from 'react-hot-toast';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   const { state, getTodo, deleteTodo, addTodo, updateTodo } = useTodo();
@@ -34,10 +33,11 @@ function App() {
     e.preventDefault();
     const title = inputValue.current.value.trim();
     if (!title) {
-      alert('TITLE MUST NOT BE EMPTY');
+      toast.error("Title can't be empty!");
       return;
     }
     addTodo(title);
+    toast.success('New task has been added successfully!')
     inputValue.current.value = '';
   };
 
@@ -50,7 +50,6 @@ function App() {
     closeModal();
     toast.success("You've successfully updated a task!")
   };
-
 
   if (state.loading) {
     return <p>Loading...</p>;
@@ -67,44 +66,51 @@ function App() {
   const paginatedData = state.data.slice(startIndex, endIndex);
 
   return (
-    <div className="App">
-      <form onSubmit={addNewTodo}>
-        <label>Title </label>
-        <input type='text' placeholder='Enter Todo' ref={inputValue} />
-        <button type="submit">Add Todo</button>
-      </form>
-      {paginatedData.map((todo) => {
-        return (
-          <div key={todo.id} className='todoList'>
-            <p className='todoTitle'>{todo.title}</p>
-            <button onClick={() => openModal(todo.id, todo.title)}>
-              Update
+    <div className='container'>
+      <div className="App">
+        <form onSubmit={addNewTodo} className='add-container'>
+          <label className='add-title'>Create new task</label>
+          <input type='text' placeholder='Enter Todo' ref={inputValue} className='add-input' />
+          <button type="submit" className='add-btn' >Add Task</button>
+        </form>
+        {paginatedData.map((todo) => {
+          return (
+            <div key={todo.id} className='todoList'>
+              <p className='todoTitle'>{todo.title}</p>
+              <button onClick={() => openModal(todo.id, todo.title)} className='update-btn' >
+                Edit
+              </button>
+              <button onClick={() => deleteTodo(todo.id)} className='delete-btn' >Delete</button>
+            </div>
+          );
+        })}
+        <div className='pagi-container'>
+          <div className='pagi-btns'>
+            <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1} className='prev-btn'>
+              Previous
             </button>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-          </div>
-        );
-      })}
-      <div>
-        <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
-          Previous
-        </button>
-        <span>Page: {currentPage}</span>
-        <button onClick={() => setCurrentPage(currentPage + 1)} disabled={endIndex >= state.data.length}>
-          Next
-        </button>
-      </div>
-      {modalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Update Todo</h2>
-            <input
-              value={updatedTodoTitle}
-              onChange={(e) => setUpdatedTodoTitle(e.target.value)}
-            />
-            <button onClick={handleUpdateTodo} setModalOpen={false}>Save</button>
+            <span style={{marginTop: '3px'}}>Page: {currentPage}</span>
+            <button onClick={() => setCurrentPage(currentPage + 1)} disabled={endIndex >= state.data.length} className='next-btn'>
+              Next
+            </button>
           </div>
         </div>
-      )}
+        {modalOpen && (
+          <div className="modal">
+            <div className="modal-content">
+              <h2>Update Task</h2>
+              <input className='modal-input'
+                value={updatedTodoTitle}
+                onChange={(e) => setUpdatedTodoTitle(e.target.value)}
+              />
+              <button onClick={handleUpdateTodo} setModalOpen={false} className='modal-upd-btn' >Update</button>
+            </div>
+            <button className='modal-close-btn' onClick={closeModal}
+            >✖</button>
+          </div>
+        )}
+        <Toaster />
+      </div>
     </div>
   );
 }

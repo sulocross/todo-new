@@ -1,18 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-image: url('./images/todo-bg.jpg');
+}
+
 .todoList{
     display: flex;
     justify-content: space-between;
     margin: 10px;
+    padding: 10px;
+    background-color: rgba(248, 248, 248, 0.411);
+    border-radius: 10px;
+}
+
+.add-container{
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    padding: 5px;
+}
+
+.add-title{
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
 }
 
 .todoTitle{
     width: 80%;
+    height: 100%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 15px;
+    margin-top: 5px;
+    font-family: monospace;
+    font-style: italic;
 }
 
 .App{
-    width: 100%;
+    margin-top: 70px;
+    width: 55rem;
+    height: 80vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
+    border-radius: 25px;
+    padding: 20px;
+    background-color: rgba(219, 135, 252, 0.308);
+    position: absolute;
 }
 
 .modal {
@@ -28,8 +70,142 @@
 }
 
 .modal-content{
-    border: 1px solid black;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
     padding: 10px;
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.modal-input{
+    padding: 10px;
+    width: 300px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(235, 233, 233);
+    outline: none;
+}
+
+.modal-input:focus{
+    box-shadow: 0px 0px 5px rgba(54, 184, 54, 0.692);
+    transition: 0.2s;
+}
+
+.modal-upd-btn{
+    padding: 5px;
+    border: none;
+    width: 100px;
+    border-radius: 8px;
+    background-color: rgb(1, 170, 1);
+    cursor: pointer;
+}
+
+.modal-upd-btn:hover{
+    background-color: rgb(117, 189, 117);
+    transition: 0.2s;
+}
+
+.modal-close-btn{
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    font-size: 18px;
+    width: 45px;
+    margin-left: 5px;
+    background-color: rgb(214, 43, 86);
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    margin-top: -250px;
+    margin-left: 450px;
+}
+
+.modal-close-btn:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.pagi-container{
+    display: flex;
+    justify-content: center;
+}
+
+.pagi-btns{
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.prev-btn{
+    border: none;
+    padding: 5px;
+    width: 80px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.next-btn{
+    border: none;
+    padding: 5px;
+    width: 80px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-btn{
+    border: none;
+    width: 70px;
+    padding: 5px;
+    background-color: rgb(72, 130, 236);
+    border-radius: 6px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+.update-btn:hover{
+    background-color: rgb(153, 183, 238);
+    transition: 0.3s;
+}
+
+.delete-btn{
+    border: none;
+    width: 70px;
+    padding: 6px;
+    background-color: rgb(243, 37, 82);
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.delete-btn:hover{
+    background-color: rgb(241, 110, 139);
+    transition: 0.3s;
+}
+
+.add-btn{
+    border: none;
+    padding: 6px;
+    background-color: rgb(27, 158, 33);
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.add-btn:hover{
+    background-color: rgb(83, 190, 88);
+    transition: 0.3s;
+}
+
+.add-input{
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    width: 350px;
 }
 
