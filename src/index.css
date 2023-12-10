@@ -5,7 +5,6 @@
 
 .container{
     width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     background-color: white;
@@ -14,11 +13,50 @@
 .todoList{
     display: flex;
     justify-content: space-between;
+    height: 100px;
     margin: 10px;
     padding: 10px;
     background-color: rgba(233, 233, 233, 0.815);
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0px 0px 3px rgb(102, 102, 102);
+}
+
+.todo-title{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.todoList-middle{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 20px;
+}
+
+.todoList-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.todo-img{
+    width: 100px;
+    border-radius: 6px;
+}
+
+.todo-stars{
+    margin-top: 5%;
+    width: 150px;
+    margin-left: 70px;
+}
+
+.star1{
+    width: 15px;
+}
+
+.star0{
+    width: 15px;
 }
 
 .add-container{
@@ -34,21 +72,9 @@
     padding: 5px;
 }
 
-.todoTitle{
-    width: 80%;
-    height: 100%;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    font-size: 15px;
-    margin-top: 5px;
-    font-family: monospace;
-    font-weight: bold;
-}
-
 .App{
-    margin-top: 70px;
+    margin-top: 20px;
     width: 55rem;
-    height: 80vh;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -157,6 +183,11 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.prev-btn:hover{
+    background-color: rgb(39, 39, 39);
+    color: white;
+    transition: 0.3s;
+}
 
 .next-btn{
     border: none;
@@ -166,34 +197,41 @@
     cursor: pointer;
     background-color: rgb(255, 255, 255);
 }
+.next-btn:hover{
+    background-color: rgb(39, 39, 39);
+    color: white;
+    transition: 0.3s;
+}
 
 .update-btn{
     border: none;
-    width: 70px;
+    width: 20px;
+    height: 20px;
     padding: 5px;
-    background-color: rgb(75, 171, 250);
+    background-color: transparent;
     border-radius: 6px;
     cursor: pointer;
     color: rgb(255, 255, 255);
 }
 
 .update-btn:hover{
-    background-color: rgb(210, 228, 240);
+    background-color: rgb(58, 159, 199);
     transition: 0.3s;
 }
 
 .delete-btn{
     border: none;
-    width: 70px;
+    width: 20px;
+    height: 20px;
     padding: 6px;
-    background-color: rgb(253, 78, 116);
+    background-color: transparent;
     border-radius: 5px;
     cursor: pointer;
     color: white;
 }
 
 .delete-btn:hover{
-    background-color: rgb(241, 183, 196);
+    background-color: rgb(223, 68, 68);
     transition: 0.3s;
 }
 

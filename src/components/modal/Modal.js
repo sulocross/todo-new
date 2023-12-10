@@ -2,6 +2,7 @@ import './modal.css'
 import { useRef } from 'react'
 import { useGlobalContext } from "../../hooks/useGlobalContext"
 import toast from 'react-hot-toast'
+import 'animate.css'
 
 const Modal = ({todo, show, controlFunction}) => {
     
@@ -23,7 +24,7 @@ const Modal = ({todo, show, controlFunction}) => {
 
     return (
         <div className="modal" style={style}>
-            <div className="modal-content">
+            <div className="modal-content animate__animated animate__fadeIn">
                 <h2>Updated Todo</h2>
                 <input className='modal-input' defaultValue={todo.title} ref={inputValue} />
                 <button onClick={updateTodoHandler} className='modal-upd-btn'>Update</button>
