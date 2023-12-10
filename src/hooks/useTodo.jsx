@@ -52,32 +52,22 @@ export const useTodo = () => {
                 dispatch({type: ERROR, payload: error.message})
             })
         },
-        updateTodo: (id, updatedTitle, completed) => {
+        updateTodo: ({id, userId, title, completed}) => {
+            let todoIndex = state.data.findIndex(todo => todo.id === id)
+            let updatedTodo = {...state.data[todoIndex], id, userId, title, completed}
             fetch(`${url}/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
-                body: JSON.stringify({
-                    userId: state.data.find(todo => todo.id === id).userId,
-                    id,
-                    title: updatedTitle,
-                    completed
-                }),
+                body: JSON.stringify(updatedTodo),
             })
             .then((res) => res.json())
-            .then((json) => {
-                const updatedData = state.data.map(todo => {
-                    if (todo.id === id) {
-                        return {
-                            ...todo,
-                            title: updatedTitle,
-                            completed
-                        };
-                    }
-                    return todo;
-                });
-                dispatch({ type: DATA_LOADED, payload: updatedData });
+            .then(todo => {
+                let todos = [...state.data]
+                let todoIndex = todos.findIndex(todo => todo.id === id)
+                todos[todoIndex] = todo
+                dispatch({ type: DATA_LOADED, payload: todos });
             })
             .catch((error) => {
                 dispatch({ type: ERROR, payload: error.message });

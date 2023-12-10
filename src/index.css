@@ -8,7 +8,7 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    background-image: url('./images/todo-bg.jpg');
+    background-color: white;
 }
 
 .todoList{
@@ -16,8 +16,9 @@
     justify-content: space-between;
     margin: 10px;
     padding: 10px;
-    background-color: rgba(248, 248, 248, 0.411);
+    background-color: rgba(233, 233, 233, 0.815);
     border-radius: 10px;
+    box-shadow: 0px 0px 3px rgb(102, 102, 102);
 }
 
 .add-container{
@@ -41,7 +42,7 @@
     font-size: 15px;
     margin-top: 5px;
     font-family: monospace;
-    font-style: italic;
+    font-weight: bold;
 }
 
 .App{
@@ -53,14 +54,15 @@
     flex-direction: column;
     border-radius: 25px;
     padding: 20px;
-    background-color: rgba(219, 135, 252, 0.308);
+    background-color: rgba(241, 241, 241, 0.801);
     position: absolute;
+    box-shadow: 0px 0px 5px rgb(102, 102, 102);
 }
 
 .modal {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.384);
     position: fixed;
     top: 0;
     left: 0;
@@ -70,7 +72,7 @@
 }
 
 .modal-content{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(253, 252, 252);
     padding: 10px;
     width: 400px;
     height: 200px;
@@ -86,7 +88,7 @@
     width: 300px;
     border-radius: 10px;
     border: none;
-    background-color: rgb(235, 233, 233);
+    background-color: rgb(223, 221, 221);
     outline: none;
 }
 
@@ -100,7 +102,7 @@
     border: none;
     width: 100px;
     border-radius: 8px;
-    background-color: rgb(1, 170, 1);
+    background-color: rgb(77, 163, 77);
     cursor: pointer;
 }
 
@@ -110,22 +112,26 @@
 }
 
 .modal-close-btn{
-    padding: 10px;
+    padding: 7px;
     border-radius: 50px;
     border: none;
-    font-size: 18px;
-    width: 45px;
+    font-size: 12px;
+    width: 30px;
     margin-left: 5px;
-    background-color: rgb(214, 43, 86);
+    background-color: rgb(165, 39, 71);
     cursor: pointer;
     color: white;
     position: absolute;
-    margin-top: -250px;
-    margin-left: 450px;
+    margin-top: -175px;
+    margin-left: 375px;
+    text-align: center;
+    padding-left: 8px;
 }
 
+
+
 .modal-close-btn:hover{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(223, 162, 162);
     color: black;
 }
 
@@ -139,6 +145,9 @@
     display: flex;
     justify-content: space-between;
     margin-top: 5px;
+    border-radius: 8px;
+    padding: 2px;
+    background-color: rgb(214, 214, 214);
 }
 
 .prev-btn{
@@ -151,24 +160,25 @@
 
 .next-btn{
     border: none;
-    padding: 5px;
+    padding: 5px; 
     width: 80px;
     border-radius: 5px;
     cursor: pointer;
+    background-color: rgb(255, 255, 255);
 }
 
 .update-btn{
     border: none;
     width: 70px;
     padding: 5px;
-    background-color: rgb(72, 130, 236);
+    background-color: rgb(75, 171, 250);
     border-radius: 6px;
     cursor: pointer;
     color: rgb(255, 255, 255);
 }
 
 .update-btn:hover{
-    background-color: rgb(153, 183, 238);
+    background-color: rgb(210, 228, 240);
     transition: 0.3s;
 }
 
@@ -176,28 +186,29 @@
     border: none;
     width: 70px;
     padding: 6px;
-    background-color: rgb(243, 37, 82);
+    background-color: rgb(253, 78, 116);
     border-radius: 5px;
     cursor: pointer;
     color: white;
 }
 
 .delete-btn:hover{
-    background-color: rgb(241, 110, 139);
+    background-color: rgb(241, 183, 196);
     transition: 0.3s;
 }
 
 .add-btn{
     border: none;
+    width: 70px;
     padding: 6px;
-    background-color: rgb(27, 158, 33);
+    background-color: rgb(66, 190, 72);
     border-radius: 5px;
     cursor: pointer;
     color: white;
 }
 
 .add-btn:hover{
-    background-color: rgb(83, 190, 88);
+    background-color: rgb(136, 197, 139);
     transition: 0.3s;
 }
 
@@ -207,5 +218,6 @@
     outline: none;
     padding-left: 10px;
     width: 350px;
+    box-shadow: 0px 0px 3px rgb(102, 102, 102);
 }
 
