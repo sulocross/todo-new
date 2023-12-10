@@ -4,9 +4,10 @@ import toast, { Toaster } from 'react-hot-toast';
 import Modal from './components/modal/Modal';
 import { GlobalContext } from './hooks/useGlobalContext';
 import { PaginationButtons } from './components/pagination/PaginationButtons';
-import { PaginatedData } from './components/pagination/PaginatedData';
+import { TodoList } from './components/pagination/TodoList';
 import { AddTodoForm } from './components/addTodoForm/AddTodoForm';
 import './index.css';
+import 'animate.css'
 
 function App() {
   const { state, getTodo, deleteTodo, addTodo, updateTodo } = useTodo();
@@ -54,11 +55,26 @@ function App() {
   return (
     <GlobalContext.Provider value={{updateTodo}} todos={state.data.length}>
       <div className='container'>
-        <div className="App">
-          <AddTodoForm addNewTodo={addNewTodo} inputValue={inputValue} />
-          <PaginatedData paginatedData={paginatedData} editTodoHandler={editTodoHandler} deleteTodo={deleteTodo}/>
-          <PaginationButtons setCurrentPage={setCurrentPage} currentPage={currentPage} />
-          <Modal todo={selectedTodo} show={showModal} controlFunction={setShowModal} endIndex={endIndex} />
+        <div className="App" >
+          <AddTodoForm 
+            addNewTodo={addNewTodo} 
+            inputValue={inputValue} 
+          />
+          <TodoList 
+            paginatedData={paginatedData} 
+            editTodoHandler={editTodoHandler} 
+            deleteTodo={deleteTodo}
+          />
+          <PaginationButtons 
+            setCurrentPage={setCurrentPage} 
+            currentPage={currentPage}
+          />
+          <Modal 
+            todo={selectedTodo} 
+            show={showModal} 
+            controlFunction={setShowModal} 
+            endIndex={endIndex}
+          />
           <Toaster />
         </div>
       </div>
