@@ -20,15 +20,16 @@ const Modal = ({todo, show, controlFunction}) => {
         }
         updateTodo({...todo, title})
         controlFunction(false)
+        toast.success('Task have been updated!')
     }
 
     return (
         <div className="modal" style={style}>
             <div className="modal-content animate__animated animate__fadeIn">
+            <button className='modal-close-btn' onClick={()=>controlFunction(false)}>✖</button>
                 <h2>Updated Todo</h2>
                 <input className='modal-input' defaultValue={todo.title} ref={inputValue} />
                 <button onClick={updateTodoHandler} className='modal-upd-btn'>Update</button>
-                <button className='modal-close-btn' onClick={()=>controlFunction(false)}>✖</button>
             </div>
             
         </div>

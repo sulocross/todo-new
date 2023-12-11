@@ -53,17 +53,15 @@ function App() {
   const paginatedData = state.data.slice(startIndex, endIndex);
 
   return (
-    <GlobalContext.Provider value={{updateTodo}} todos={state.data.length}>
+    <GlobalContext.Provider value={{updateTodo, deleteTodo, editTodoHandler}} todos={state.data.length} >
       <div className='container'>
         <div className="App" >
           <AddTodoForm 
             addNewTodo={addNewTodo} 
-            inputValue={inputValue} 
+            inputValue={inputValue}
           />
           <TodoList 
-            paginatedData={paginatedData} 
-            editTodoHandler={editTodoHandler} 
-            deleteTodo={deleteTodo}
+            paginatedData={paginatedData}
           />
           <PaginationButtons 
             setCurrentPage={setCurrentPage} 
