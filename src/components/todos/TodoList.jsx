@@ -1,6 +1,6 @@
 import React from 'react'
 import 'animate.css'
-import { TodoItem } from '../TodoItem';
+import { TodoItem } from './TodoItem';
 
 export const TodoList = ({paginatedData}) => {
     return (
@@ -8,7 +8,7 @@ export const TodoList = ({paginatedData}) => {
             {paginatedData.map((todo) => {
                 return (
                     <TodoItem 
-                    todo={todo} /> 
+                    todo={todo} key={todo.id} /> 
                 );
             })}
         </div>

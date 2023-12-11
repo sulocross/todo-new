@@ -7,6 +7,12 @@ export const useTodo = () => {
 
     const {state, dispatch} = useApiState()
 
+    let getNextMaxId = (state) => {
+        let ids = state.data.map((todo)=>todo.id)
+        let maxId = Math.max(...ids)
+        return maxId + 1
+    }
+
     return {
         state,
         getTodo: () => {
@@ -46,6 +52,7 @@ export const useTodo = () => {
             })
             .then((res) => res.json())
             .then((json) => {
+                json.id = getNextMaxId(state)
                 dispatch({type: DATA_LOADED, payload: [...state.data, json]})
             })
             .catch(error=> {

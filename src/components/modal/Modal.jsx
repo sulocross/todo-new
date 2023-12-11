@@ -2,7 +2,6 @@ import './modal.css'
 import { useRef } from 'react'
 import { useGlobalContext } from "../../hooks/useGlobalContext"
 import toast from 'react-hot-toast'
-import 'animate.css'
 
 const Modal = ({todo, show, controlFunction}) => {
     

@@ -6,13 +6,13 @@ export const useApiState = () => {
 
     const {setParam, getParam} = useLocalStorage()
 
-    let cachedState = getParam('state')
+    let cachedState = getParam('app-state')
 
     let initialState = cachedState ? JSON.parse(cachedState) : {data: [], loading: true, error: null}
     const [state, dispatch] = useReducer(reducer, initialState)
 
     useEffect(() => {
-        setParam('state', JSON.stringify(state))
+        setParam('app-state', JSON.stringify(state))
     }, [state])
 
     return {
@@ -20,3 +20,4 @@ export const useApiState = () => {
         dispatch
     }
 }
+
